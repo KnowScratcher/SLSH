@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="zh-Hant">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMZ31FE099"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YMZ31FE099');
+        </script>
+
+        <script src="../../cc.js"></script>
+        
+        <title>時間安排機</title>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="./setting.css">
+        <link rel="icon" type="image/png" href="../../ico.png">
+    </head>
+    <body style="background-color: black;" onload=cc();update_time_table();start_loop();update_wtd_table();>
+        <div class="topnav">
+            <a class="active" href="../../index.html">回首頁</a>
+        </div>
+        <h1 style="color: white;">時間安排機</h1>
+        <hr>
+
+        <div class="text" style="width: 100%; height: 30%;">
+            <h2>操作區</h2>
+            <div style="display: flex; margin: 1%;">
+                <button onclick="add_time();">新增時間</button>
+                <button onclick="add_wtd();">新增事項</button>
+                <button onclick="select_mode();">選擇模式</button>
+                <button onclick="calculate_time();">生成時間表</button>
+            </div>
+        </div>
+        <hr>
+
+        <div class="text">
+            <h2>表格</h2>
+            <table id="tt" style="width: 40%;">
+                <tr>
+                    <th>時間</th>
+                    <th>刪除</th>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+            <br>
+            <table id="wtd" style="width: 40%;">
+                <tr>
+                    <th>事項</th>
+                    <th>難度</th>
+                    <th>刪除</th>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>🗑️</td>
+                </tr>
+            </table>
+            <hr>
+            <h2>結果</h2>
+            <table id="result" style="width: 40%;">
+                <tr>
+                    <th>事項</th>
+                    <th>時間</th>
+                </tr>
+            </table>
+        </div>
+        <div class="setting text" id="add_time">
+            <div class="setting-content">
+                <h2>新增時間</h2>
+                <input type="time" name="add_t" id="add_t1">
+                <h3>到</h3>
+                <input type="time" name="add_t" id="add_t2">
+                <p style="color: red;" id="time_w"></p>
+                <button id="add_t_b" onclick="save_time();">新增</button>
+                <button id="cls_t" onclick="close_entry();">關閉</button>
+            </div>
+        </div>
+        <div class="setting text" id="add_wtd">
+            <div class="setting-content">
+                <h2>新增事項</h2>
+                <h3>事項名稱</h3>
+                <input type="text" name="add_wtd" id="add_wtd_in">
+                <h3>難度</h3>
+                <input type="range" name="difficulty" id="diff" min="1" max="5"><p style="display: inline;" id="diff_dis"></p>
+                <p style="color: red;" id="wtd_w"></p>
+                <button id="add_wtd_b" onclick="save_wtd();">新增</button>
+                <button id="cls_w" onclick="close_entry();">關閉</button>
+            </div>
+        </div>
+        <div class="setting text" id="mode">
+            <div class="setting-content">
+                <h2>選擇模式</h2>
+                <div>
+                    <h3>排程模式</h3>
+                    <input type="radio" name="type" value="normal" checked>普通模式
+                    <br>
+                    <input type="radio" name="type" value="sb" disabled>刷題模式(尚未支援)
+                    <br>
+                    <input type="radio" name="type" value="mix" disabled>課表模式(尚未支援)
+                </div>
+                <hr>
+                <div>
+                    <h3>排程單位</h3>
+                    <p>排出的時間表要精細到哪個單位</p>
+                    <input type="radio" name="unit" value="h" checked>小時
+                    <br>
+                    <input type="radio" name="unit" value="m">分鐘
+                    <br>
+                    <input type="radio" name="unit" value="d" disabled>日(尚未支援)
+                </div>
+                <hr>
+                <div>
+                    <h3>休息選項</h3>
+                    <p>排出的時間表休息時間長度</p>
+                    <input type="radio" name="rest" value="5" checked>短
+                    <br>
+                    <input type="radio" name="rest" value="10">長
+                </div>
+                <br>
+                <button id="cls_w" onclick="close_entry();">關閉</button>
+            </div>
+        </div>
+        <script src="./tt.js"></script>
+        <p class="text" id="cc"></p>
+    </body>
+</html>

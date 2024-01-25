@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="zh-Hant">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMZ31FE099"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YMZ31FE099');
+        </script>
+
+        <script src="../../cc.js"></script>
+        
+        <title>氣象資訊</title>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="icon" type="image/png" href="../../ico.png">
+        <script src="../../weather.js"></script>
+    </head>
+    <body style="background-color: black;" onload=get_weather();cc();>
+        <div class="topnav">
+            <a class="active" href="../../index.html">回首頁</a>
+        </div>
+        <h1 style="color: white;">氣象資訊</h1>
+        <hr>
+        <div class="text">
+            <h2 id="getting">正在連線中央氣象<strong>署</strong>...(若一直停在這裡，請檢查網路連線)</h2>
+            <div style="text-align: center;background-color: #404040;width: 100%;display: inline-flex;flex-direction: row;">
+                <div style="width:33%;">
+                    <h3 class="text">溫度</h3>
+                    <canvas id="temp"></canvas>
+                </div>
+                <div style="width:33%;">
+                    <h3 class="text">體感溫度</h3>
+                    <canvas id="feel"></canvas>
+                </div>
+                <div style="width:33%;">
+                    <h3 class="text">降雨機率</h3>
+                    <canvas id="rain"></canvas>
+                </div>
+            </div>
+            <br>
+            <br>
+            <table width="100%" style="background-color: grey;">
+                <tr style="background-color: #404040;">
+                    <td>日期 時間</td>
+                    <td>天氣</td>
+                    <td>體感溫度(℃)</td>
+                    <td>溫度(℃)</td>
+                    <td>降雨機率(%)</td>
+                </tr>
+            </table>
+            <div>  
+                <table width="100%" style="background-color: grey;" id="weather">
+                </table>
+            </div>
+        </div>
+
+        <p class="text">資料來源:中央氣象<strong>署</strong></p>
+        <p class="text" id="cc"></p>
+    </body>
+</html>

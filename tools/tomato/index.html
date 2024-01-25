@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="zh-Hant">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMZ31FE099"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YMZ31FE099');
+        </script>
+
+        <script src="../../cc.js"></script>
+        
+        <title>番茄鐘</title>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="icon" type="image/png" href="../../ico.png">
+        <script src="clock.js"></script>
+    </head>
+    <body style="background-color: black;" onload=load_at();cc();load_vol();>
+        <audio id="timeup">
+            <source src="boxing-bell-single.mp3" type="audio/mp3">
+        </audio>
+
+        <div class="topnav">
+            <a class="active" href="../../index.html">回首頁</a>
+            <p class="text">&lt;&lt;回首頁將會清除目前階段</p>
+        </div>
+        <h1 style="color: white;">番茄鐘</h1>
+        <hr>
+        <div class="text">
+            <div style="display: inline; float: left;">
+                <h2 id="status">專心時間</h2>
+                <h2 id="clock">25:00</h2>
+            </div>
+            <div style="display: inline; float: left; padding-left: 10px;">
+                <h2>累積專心時間</h2>
+                <h2 id="all_time">0:0</h2>
+            </div>
+        </div>
+        <hr style="clear: both;">
+        <ul>
+            <li id="ps" class="button" onclick=ps();>開始</li>
+            <li class="button" onclick=restart_session();>重新開始本階段</li>
+            <li class="button" onclick=reset_all();>重頭開始</li>
+        </ul>
+        <ul style="margin-left: 10px;">
+            <li class="button" onclick="document.getElementById('timeup').play(); volume();">測試音效</li>
+            <li class="button"><p style="display: inline;" id="volume">0</p><input style="float: right;" type="range" id="vol" name="vol" min="0" max="100"></li>
+            <li class="button" id="autostart" onclick=auto_start()>自動開始:關閉</li>
+        </ul>
+        <br style="clear: both;">
+        <h2 class="text">什麼是番茄鐘</h2>
+        <h3 class="text">番茄工作法是一種時間管理方法，在1980年代由Francesco Cirillo創立。該方法使用一個定時器來分割出一個一般為25分鐘的工作時間和5分鐘的休息時間，而那些時間段被稱為pomodoros。這個方法可以有效提高工作或讀書效率。</h3>
+        <p class="text" id="cc"></p>
+    </body>
+</html>

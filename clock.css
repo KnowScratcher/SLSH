@@ -1,0 +1,12 @@
+.morning {
+    color: gold;
+}
+
+.day {
+    color: white;
+}
+
+.night {
+    color: brown;
+    color: hsl(294, 60, 40)
+}
